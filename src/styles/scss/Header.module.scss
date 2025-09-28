@@ -1,0 +1,51 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  backdrop-filter: blur(15px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px;
+  flex-grow: 1;
+  display: none;
+}
+
+.mobileLogo {
+  height: 40px;
+  display: block;
+  padding-right: 20px;
+}
+
+.rightContent {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (min-width: 600px) {
+  .inner {
+  }
+
+  .logo {
+    display: block;
+  }
+
+  .mobileLogo {
+    display: none;
+  }
+}

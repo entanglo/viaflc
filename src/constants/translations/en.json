@@ -1,0 +1,88 @@
+{
+  "home": {
+    "hero": {
+      "title": "Merge Mining Pool",
+      "subtitle": "Built to maximize your profits — earn multiple scrypt coins with one setup."
+    },
+    "poolServer": {
+      "title": "Pool Server",
+      "stratumUrl": "Stratum URL",
+      "walletWorker": "address.workerName",
+      "password": "password",
+      "copy": "Copy to clipboard"
+    },
+    "poolInfo": {
+      "title": "Pool Information",
+      "algorithm": "Algorithm",
+      "poolFee": "Pool Fee",
+      "scheme": "Payment Scheme"
+    },
+    "merge": { "title": "Merge Mining" },
+    "track": {
+      "title": "Track My Shares",
+      "subtitle": "Enter your wallet address to view detailed shares.",
+      "placeholder": "Enter your address",
+      "trackShares": "Track Shares"
+    }
+  },
+  "pageNotFound": "This page could not be found",
+  "languages": {
+    "en": "English",
+    "ru": "Русский",
+    "cn": "中文"
+  },
+  "faq": {
+    "title": "FAQ",
+    "questions": [
+      {
+        "q": "What is ViaFLC?",
+        "a": "A decentralized, transparent merge‑mining pool. You keep control; we maximize your earnings by mining FLC and compatible coins together."
+      },
+      {
+        "q": "What payout model do you use?",
+        "a": "PPLNS. Rewards are split by your valid shares within the window; payouts are made after each coin's network maturity. Every share and payout is tracked via [[link:shareNote]] for transparency."
+      },
+      {
+        "q": "What can I earn?",
+        "a": "FLC is the base. When merge mining is enabled, compatible coins are added automatically — one setup, multiple rewards."
+      },
+      {
+        "q": "How do I start?",
+        "a": "Point your miner to the Stratum URL with your wallet address as the username. No account needed. See the Pool Server section on this page."
+      },
+      {
+        "q": "When do I get paid?",
+        "a": "After a block is found and the network maturity period passes. Payments and share credit are visible in the tracker with your address."
+      }
+    ]
+  },
+  "footer": {
+    "title": "ViaFLC built to maximize your profits 🚀",
+    "columns": [
+      {
+        "title": "Community",
+        "links": [
+          { "label": "Discord", "link": "https://discord.gg/example" },
+          { "label": "Twitter", "link": "https://x.com/example" },
+          { "label": "Forum", "link": "https://forum.example.com" }
+        ]
+      },
+      {
+        "title": "Resources",
+        "links": [
+          { "label": "Docs", "link": "https://example.com/docs" },
+          { "label": "Guides", "link": "https://example.com/guides" },
+          { "label": "Status", "link": "https://status.example.com" }
+        ]
+      },
+      {
+        "title": "Developers",
+        "links": [
+          { "label": "API Reference", "link": "https://api.example.com" },
+          { "label": "SDKs", "link": "https://example.com/sdks" },
+          { "label": "Open Source", "link": "https://github.com/example" }
+        ]
+      }
+    ]
+  }
+}
