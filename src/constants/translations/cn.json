@@ -2,27 +2,29 @@
   "home": {
     "hero": {
       "title": "合并挖矿矿池",
-      "subtitle": "为最大化收益而生 — 一次配置，赚取多种 scrypt 币种。"
+      "subtitle": "同样算力赚取更多币种"
     },
     "poolServer": {
       "title": "矿池服务器",
       "stratumUrl": "Stratum 地址",
-      "walletWorker": "address.workerName",
-      "password": "password",
+      "walletWorker": "地址.矿工名",
+      "password": "密码",
       "copy": "复制到剪贴板"
     },
     "poolInfo": {
       "title": "矿池信息",
       "algorithm": "算法",
       "poolFee": "矿池费率",
-      "scheme": "支付方式"
+      "scheme": "支付方案"
     },
-    "merge": { "title": "合并挖矿币种" },
+    "merge": {
+      "title": "合并挖矿"
+    },
     "track": {
-      "title": "查看我的份额",
-      "subtitle": "输入你的钱包地址以查看详细份额。",
-      "placeholder": "输入你的地址",
-      "trackShares": "查看份额"
+      "title": "Hashboard 看板",
+      "subtitle": "实时查看你的收益、Sharenote 和算力。",
+      "placeholder": "输入你的收款地址",
+      "trackShares": "查看"
     }
   },
   "pageNotFound": "未找到该页面",
@@ -32,59 +34,77 @@
     "cn": "中文"
   },
   "faq": {
-    "title": "FAQ",
+    "title": "矿池常见问题",
     "questions": [
       {
-        "q": "什么是份额？",
-        "a": "份额是你的矿机提交给矿池的工作量证明单元。矿池统计有效份额以衡量贡献并分配奖励。了解更多。"
+        "q": "开始需要哪些硬件？",
+        "a": "使用 Scrypt ASIC 效果最佳。GPU 也可以连接，但在相同功耗下 ASIC 的收益更高。"
       },
       {
-        "q": "什么是 Share Note？",
-        "a": "Share Note 是遵循 [[link:shareNote]] 规范的事件，用于以可携带且可验证的格式表示一个挖矿份额。"
+        "q": "目前可以使用哪个收款地址？",
+        "a": "请使用 FLC 钱包地址。这是目前唯一的提现方式；更多币种上线后会开放对应的提现。需要新地址？请查看 [[link:twalletGuide]]。"
       },
       {
-        "q": "如何查看我的打款？",
-        "a": "在追踪区输入你加入矿池时使用的钱包地址，以便查看已提交的份额和打款。"
+        "q": "合并挖矿会获得哪些币种？",
+        "a": "现在会结算 FLC。一旦我们发布新的模板，更多 Scrypt 币种会自动解锁。"
       },
       {
-        "q": "你们使用哪种结算方式？",
-        "a": "PPLNS。奖励按你在窗口期的有效份额比例分配；各币种需经过网络成熟期后打款。所有份额与打款都通过 [[link:shareNote]] 记录以便透明可查。"
+        "q": "收益如何结算？",
+        "a": "我们使用 PPLNS 结算。每个币种成熟后，你的有效 Sharenote 会立即入账。"
       },
       {
-        "q": "找到区块时，会同时获得其他币的奖励吗？",
-        "a": "会。启用合并挖矿后，奖励也会计入合并挖矿板块中启用的币种。"
+        "q": "如何追踪我的矿机和 Sharenote？",
+        "a": "使用上方的 Hashboard 区域，粘贴你的收款地址，实时查看算力、收益和 Sharenote。"
       },
       {
-        "q": "奖励何时确认并支付？",
-        "a": "在提交有效区块后会立即支付，但各币种都有各自的成熟期，需在成熟后支付。"
+        "q": "什么是 Sharenote？为什么重要？",
+        "a": "Sharenote 是每个有效份额的签名凭证。访问 [[link:shareNote]] 了解更多。"
+      },
+      {
+        "q": "Sharenote 如何赋能 Web of Fun (WoF) 生态？",
+        "a": "WoF 将 Sharenote 用作社交应用、游戏和基于工作量的奖励门票。前往 [[link:wofDocs]] 查看你的算力能解锁什么。"
+      },
+      {
+        "q": "如何获取支持或反馈？",
+        "a": "加入 [[link:discord]]，联系社区团队、提交支持工单，或关注矿池公告获取最新消息。"
       }
     ]
   },
   "footer": {
-    "title": "ViaFLC 致力于最大化你的收益 🚀",
+    "title": "ViaFLC - 同样算力赚取更多币种",
     "columns": [
       {
         "title": "社区",
         "links": [
-          { "label": "Discord", "link": "https://discord.gg/example" },
-          { "label": "Twitter", "link": "https://x.com/example" },
-          { "label": "论坛", "link": "https://forum.example.com" }
+          {
+            "label": "Discord",
+            "link": "https://discord.gg/example"
+          },
+          {
+            "label": "Twitter",
+            "link": "https://x.com/example"
+          },
+          {
+            "label": "论坛",
+            "link": "https://forum.example.com"
+          }
         ]
       },
       {
         "title": "资源",
         "links": [
-          { "label": "文档", "link": "https://example.com/docs" },
-          { "label": "指南", "link": "https://example.com/guides" },
-          { "label": "状态", "link": "https://status.example.com" }
-        ]
-      },
-      {
-        "title": "开发者",
-        "links": [
-          { "label": "API 参考", "link": "https://api.example.com" },
-          { "label": "SDKs", "link": "https://example.com/sdks" },
-          { "label": "开源", "link": "https://github.com/example" }
+          {
+            "label": "文档",
+            "link": "https://example.com/docs"
+          },
+          {
+            "label": "指南",
+            "link": "https://example.com/guides"
+          },
+          {
+            "label": "状态",
+            "link": "https://status.example.com"
+          }
         ]
       }
     ]

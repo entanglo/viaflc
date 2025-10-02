@@ -1,8 +1,8 @@
 {
   "home": {
     "hero": {
-      "title": "Merge Mining Pool",
-      "subtitle": "Built to maximize your profits — earn multiple scrypt coins with one setup."
+      "title": "The Merge Mining Pool",
+      "subtitle": "More Coins Same Power"
     },
     "poolServer": {
       "title": "Pool Server",
@@ -17,12 +17,14 @@
       "poolFee": "Pool Fee",
       "scheme": "Payment Scheme"
     },
-    "merge": { "title": "Merge Mining" },
+    "merge": {
+      "title": "Merge Mining"
+    },
     "track": {
-      "title": "Track My Shares",
-      "subtitle": "Enter your wallet address to view detailed shares.",
-      "placeholder": "Enter your address",
-      "trackShares": "Track Shares"
+      "title": "Hashboard",
+      "subtitle": "Explore your payouts, Sharenotes, and hashrate in real time.",
+      "placeholder": "Enter your payout address",
+      "trackShares": "Explore"
     }
   },
   "pageNotFound": "This page could not be found",
@@ -32,55 +34,77 @@
     "cn": "中文"
   },
   "faq": {
-    "title": "FAQ",
+    "title": "Mining Pool FAQ",
     "questions": [
       {
-        "q": "What is ViaFLC?",
-        "a": "A decentralized, transparent merge‑mining pool. You keep control; we maximize your earnings by mining FLC and compatible coins together."
+        "q": "What hardware do I need to get started?",
+        "a": "Use a Scrypt ASIC for best results. A GPU can run too, but ASIC rigs earn more with the same power."
       },
       {
-        "q": "What payout model do you use?",
-        "a": "PPLNS. Rewards are split by your valid shares within the window; payouts are made after each coin's network maturity. Every share and payout is tracked via [[link:shareNote]] for transparency."
+        "q": "Which payout address can I use?",
+        "a": "Use an FLC wallet address. That is the only payout option for now; more coins unlock as their payouts go live. Need one? Follow the [[link:twalletGuide]]."
       },
       {
-        "q": "What can I earn?",
-        "a": "FLC is the base. When merge mining is enabled, compatible coins are added automatically — one setup, multiple rewards."
+        "q": "Which coins do I earn while merge mining?",
+        "a": "You earn FLC today. More Scrypt coins will unlock as soon as we launch their templates."
       },
       {
-        "q": "How do I start?",
-        "a": "Point your miner to the Stratum URL with your wallet address as the username. No account needed. See the Pool Server section on this page."
+        "q": "How does the payout schedule work?",
+        "a": "We use PPLNS payouts. When a coin matures, you get paid for your valid Sharenotes."
       },
       {
-        "q": "When do I get paid?",
-        "a": "After a block is found and the network maturity period passes. Payments and share credit are visible in the tracker with your address."
+        "q": "How do I track my miners and Sharenotes?",
+        "a": "Use the Hashboard section above, paste your payout address, and watch live hash rate, rewards, and Sharenotes there."
+      },
+      {
+        "q": "What is a Sharenote and why does it matter?",
+        "a": "A Sharenote is a signed receipt for each accepted share. Learn more at [[link:shareNote]]."
+      },
+      {
+        "q": "How does Sharenote power the Web of Fun (WoF) ecosystem?",
+        "a": "WoF uses Sharenotes as tickets for social apps, games, and rewards built on provable work. See what your hashpower unlocks at [[link:wofDocs]]."
+      },
+      {
+        "q": "Where can I get help or share feedback?",
+        "a": "Join [[link:discord]], message the community team, file a support ticket, or watch pool announcements for updates."
       }
     ]
   },
   "footer": {
-    "title": "ViaFLC built to maximize your profits 🚀",
+    "title": "ViaFLC - More Coins Same Power",
     "columns": [
       {
         "title": "Community",
         "links": [
-          { "label": "Discord", "link": "https://discord.gg/example" },
-          { "label": "Twitter", "link": "https://x.com/example" },
-          { "label": "Forum", "link": "https://forum.example.com" }
+          {
+            "label": "Discord",
+            "link": "https://discord.gg/example"
+          },
+          {
+            "label": "Twitter",
+            "link": "https://x.com/example"
+          },
+          {
+            "label": "Forum",
+            "link": "https://forum.example.com"
+          }
         ]
       },
       {
         "title": "Resources",
         "links": [
-          { "label": "Docs", "link": "https://example.com/docs" },
-          { "label": "Guides", "link": "https://example.com/guides" },
-          { "label": "Status", "link": "https://status.example.com" }
-        ]
-      },
-      {
-        "title": "Developers",
-        "links": [
-          { "label": "API Reference", "link": "https://api.example.com" },
-          { "label": "SDKs", "link": "https://example.com/sdks" },
-          { "label": "Open Source", "link": "https://github.com/example" }
+          {
+            "label": "Docs",
+            "link": "https://example.com/docs"
+          },
+          {
+            "label": "Guides",
+            "link": "https://example.com/guides"
+          },
+          {
+            "label": "Status",
+            "link": "https://status.example.com"
+          }
         ]
       }
     ]

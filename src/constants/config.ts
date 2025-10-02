@@ -17,5 +17,8 @@ export const MERGE_MINING_COINS = [
 ];
 
 export const FAQ_LINKS: Record<string, { label: string; link: string }> = {
-  shareNote: { label: 'ShareNote', link: 'https://sharenote.xyz' }
+  discord: { label: '#mining on Discord', link: 'https://flokicoin.org/discord' },
+  shareNote: { label: 'sharenote.xyz', link: 'https://sharenote.xyz' },
+  wofDocs: { label: 'WoF paper', link: 'https://docs.flokicoin.org/wof' },
+  twalletGuide: { label: 'tWallet guide', link: 'https://docs.flokicoin.org/wallets/twallet/v1' }
 };
