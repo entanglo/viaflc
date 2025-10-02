@@ -1,64 +1,30 @@
 <p align="center">
-  <img src="public/assets/logo.png" alt="ViaFLC Logo" />
+  <img src="public/assets/logo.svg" alt="ViaFLC" width="600" />
 </p>
+ViaFLC is a Scrypt merge-mining pool designed for simple and clean onboarding.
+This landing page highlights the Stratum connection flow and provides access to the Hashboard.
 
-# Scrypt Merge Mining Pool
+### Landing page Features
 
-ViaFLC is a transparent, account‑free mining pool focused on simplicity and higher earnings through merge mining. Configure your miner once to earn FLC as the base reward while simultaneously collecting compatible Scrypt coins. Every submitted share and payout can be tracked using the ShareNote specification, which provides portable, verifiable records published via relays. Learn more at https://sharenote.xyz.
+- Lightweight Next.js front end with MUI styling.
+- Multilingual FAQ (English, 中文, Русский) stored in `src/constants/translations`.
+- Configurable Stratum/fee data via environment variables.
 
-## How It Works
+### Quick start
 
-- Point your miner to the ViaFLC Stratum endpoint using your wallet address as the username.
-- Mine FLC as the base coin; compatible Scrypt coins are added automatically via merge mining.
-- Shares are accounted with PPLNS; rewards are paid after block discovery and network maturity.
-- Track activity by entering your wallet address in the app to connect our shareNote relay for real‑time events.
-
-## Quick Connect
-
-- Stratum URL: `stratum+tcp://pool.viaflc.com:1233`
-- Username: `yourAddress.workerName`
-- Password: `x` (or any)
-
-Example:
-
-```
--o stratum+tcp://pool.viaflc.com:1233 -u YOURADDRESS.miner1 -p x
-```
-
-## Pool Parameters
-
-- Algorithm: Scrypt
-- Pool Fee: 1%
-- Payout Scheme: PPLNS (rewards proportional to your valid shares within the window)
-
-## Merge‑Mined Coins
-
-Earn multiple coins with one setup:
-
-FLC, DOGE, PEP, JKC, SHIC, LKY, DINGO, CAT, GLC, AUR, CRC
-
-## Developers (optional)
-
-Requirements: Node.js 18+, Yarn or npm
-
-Install and run:
-
-```
+```bash
 yarn install
-yarn dev
-# http://localhost:3000
+yarn dev  # http://localhost:3000
 ```
 
-Production build:
+Set these variables in `.env.local` (or your shell) before running:
 
-```
-yarn build && yarn start
-```
+- `NEXT_PUBLIC_POOL_URL`
+- `NEXT_PUBLIC_POOL_FEE`
+- `NEXT_PUBLIC_SHARES_URL`
 
-Environment (optional):
+For production: `yarn build && yarn start`.
 
-```
-NEXT_PUBLIC_POOL_URL
-NEXT_PUBLIC_POOL_FEE
-NEXT_PUBLIC_SHARES_URL
-```
+---
+
+Contributions that improve onboarding copy, visuals, or localization are welcome. Run `yarn lint` before opening a PR.
