@@ -19,3 +19,8 @@ export const BORDER_STRONG = '#232323';
 
 // Legacy still used in backup page
 export const PRIMARY_GREY = '#B3B3B3';
+
+
+export const PRIMARY_BLUE= '#42a5f5'
+export const SECONDARY_BLUE_1= '#90caf9'
+export const PRIMARY_GOLD= '#d19810'
