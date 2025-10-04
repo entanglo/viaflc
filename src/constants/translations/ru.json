@@ -7,7 +7,7 @@
     "poolServer": {
       "title": "Сервер пула",
       "stratumUrl": "Stratum URL",
-      "walletWorker": "address.workerName",
+      "walletWorker": "адрес.рабочий",
       "password": "пароль",
       "copy": "Скопировать"
     },
