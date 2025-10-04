@@ -3,7 +3,7 @@ import { ThemeProvider, useTheme } from '@mui/material/styles';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-
+import Script from 'next/script';
 import '@styles/scss/globals.scss';
 import customTheme from '@styles/theme';
 import { throwErrorIfEnvVarsNotFound } from '@utils/ConfigUtils';
@@ -21,6 +21,18 @@ const App = (props: AppProps) => {
 
   return (
     <ThemeProvider theme={customTheme(outerTheme)}>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-57MPTSDC1R"
+        strategy="afterInteractive"
+      />
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-57MPTSDC1R');
+        `}
+      </Script>
       <Head>
         <title>ViaFLC</title>
         <meta
@@ -34,7 +46,6 @@ const App = (props: AppProps) => {
         <meta name="apple-mobile-web-app-title" content="ViaFLC"></meta>
         <link rel="manifest" href="/assets/site.webmanifest"></link>
       </Head>
-
       <Header />
       <Container
         maxWidth="md"
