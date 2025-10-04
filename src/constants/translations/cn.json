@@ -7,7 +7,7 @@
     "poolServer": {
       "title": "矿池服务器",
       "stratumUrl": "Stratum 地址",
-      "walletWorker": "地址.矿工名",
+      "walletWorker": "地址.工人",
       "password": "密码",
       "copy": "复制到剪贴板"
     },

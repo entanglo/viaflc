@@ -21,11 +21,17 @@ const MergeMining = () => {
     const showProgress = !active && progress != null; // show ring for any defined progress
     const imageOpacity = computeOpacity(active, progress);
     const grayscale = active ? 0 : progress == null || p <= 0 ? 1 : 1 - p; // reveal colors progressively
+    const blur = !active && progress == null ? 2 : 0; // blur only inactive coins without progress
+
+    const filterParts: string[] = [];
+    if (grayscale > 0) filterParts.push(`grayscale(${grayscale})`);
+    if (blur > 0) filterParts.push(`blur(${blur}px)`);
+    const filter = filterParts.length ? filterParts.join(' ') : 'none';
 
     const size = 48;
     const stroke = 4; // ring thickness
 
-    return { active, p, showProgress, imageOpacity, grayscale, size, stroke };
+    return { active, p, showProgress, imageOpacity, grayscale, filter, size, stroke };
   };
 
   return (
@@ -60,7 +66,7 @@ const MergeMining = () => {
                       height: ui.size,
                       borderRadius: '50%',
                       opacity: ui.imageOpacity,
-                      filter: ui.grayscale > 0 ? `grayscale(${ui.grayscale})` : 'none'
+                      filter: ui.filter
                     }}
                   />
                   {ui.showProgress && (
