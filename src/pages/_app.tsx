@@ -37,8 +37,11 @@ const App = (props: AppProps) => {
         <title>ViaFLC</title>
         <meta
           name="description"
-          content="Decentralized Mining Pool built to maximize your profits"
+          content="ViaFLC - More Coins Same Power"
         />
+        <meta property="og:image" content="/assets/og.png" />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:alt" content="ViaFLC" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96"></link>
         <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />

@@ -2,6 +2,10 @@ export const POOL_URL: string = process.env.NEXT_PUBLIC_POOL_URL!;
 export const POOL_FEE: string = process.env.NEXT_PUBLIC_POOL_FEE!;
 export const SHARES_URL = process.env.NEXT_PUBLIC_SHARES_URL!;
 
+export const SOCIAL_URLS: Record<string, string> = {
+  github: 'https://github.com/entanglo/viaflc'
+};
+
 export const MERGE_MINING_COINS = [
   { code: 'FLC', icon: '/img/flc.png', active: true },
   { code: 'DOGE', icon: '/img/doge.png', active: false },

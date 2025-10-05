@@ -1,4 +1,5 @@
 import LanguageSwitcher from '@components/common/LanguageSwitcher';
+import SocialLinks from '@components/common/SocialLinks';
 import { Container } from '@mui/material';
 import styles from '@styles/scss/Header.module.scss';
 import Image from 'next/image';
@@ -30,6 +31,7 @@ const Header = () => {
             </Link>
           </div>
           <div className={styles.rightContent}>
+            <SocialLinks />
             <LanguageSwitcher />
           </div>
         </div>
