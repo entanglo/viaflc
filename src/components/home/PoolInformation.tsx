@@ -1,8 +1,8 @@
+import { useTranslation } from 'react-i18next';
+import { POOL_FEE } from '@constants/config';
 import { Box, Container, Grid, Typography } from '@mui/material';
 import GlassCard from '@components/styled/GlassCard';
 import { StatBox, StatLabel, StatValue } from '@components/styled/InfoStat';
-import { POOL_FEE } from '@constants/config';
-import { useTranslation } from 'react-i18next';
 
 const PoolInformation = () => {
   const { t } = useTranslation();
@@ -11,7 +11,7 @@ const PoolInformation = () => {
     <Container maxWidth="md" sx={{ py: 2 }}>
       <GlassCard>
         <Box sx={{ p: 3 }}>
-          <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
+          <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
             {t('home.poolInfo.title')}
           </Typography>
           <Grid container spacing={2} justifyContent="center">

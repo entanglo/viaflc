@@ -1,7 +1,7 @@
 import { Paper } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-const GlassCard = styled(Paper)(({ theme }) => ({
+const GlassCard = styled(Paper)(() => ({
   position: 'relative',
   background: 'rgba(17, 17, 17, 0.85)',
   borderRadius: 16,
@@ -11,4 +11,3 @@ const GlassCard = styled(Paper)(({ theme }) => ({
 }));
 
 export default GlassCard;
-

@@ -1,46 +1,113 @@
-import GlassCard from '@components/styled/GlassCard';
-import { MERGE_MINING_COINS } from '@constants/config';
-import { Badge, Box, CircularProgress, Container, Typography } from '@mui/material';
-import { PRIMARY_GOLD } from '@styles/colors';
+import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import ContainerDI from 'typedi';
+import { MERGE_MINING_COINS, RELAY_URL } from '@constants/config';
+import {
+  Badge,
+  Box,
+  Button,
+  CircularProgress,
+  Collapse,
+  Container,
+  Divider,
+  Typography
+} from '@mui/material';
+import { alpha } from '@mui/material/styles';
+import GlassCard from '@components/styled/GlassCard';
+import { IconInput, IconWrapper, StyledIconInputBase } from '@components/styled/IconInput';
+import { RelayService } from '@services/api/RelayService';
+import {
+  BORDER_SUBTLE,
+  PRIMARY_BLUE,
+  PRIMARY_GOLD,
+  PRIMARY_WHITE,
+  SURFACE_MUTED,
+  TEXT_SUBTLE
+} from '@styles/colors';
+import { prepareCoin, validateAddress } from '@utils/Utils';
 
-const MergeMining = () => {
+const MergeMiningConfigurator = dynamic(() => import('./MergeMiningConfigurator'), { ssr: false });
+
+interface Props {
+  flcAddress?: string;
+  onAddressChange?: (addr: string) => void;
+  nostrSettings?: any[] | null;
+  onPayoutsFetched?: (address: string, settings: any[] | null) => void;
+  generated?: boolean;
+}
+
+const MergeMining = ({
+  flcAddress,
+  onAddressChange,
+  nostrSettings,
+  onPayoutsFetched,
+  generated
+}: Props) => {
   const { t } = useTranslation();
-  const computeOpacity = (active: boolean, progress?: number | null) => {
-    if (active) return 1;
-    if (progress == null) return 0.5;
-    const p = Math.max(0.5, Math.min(1, progress));
-    return 0.5 * p + 0.5; // linear from 0.75 at 0.5 to 1 at 1
-  };
+  const [showConfig, setShowConfig] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const prepareCoin = (c: any) => {
-    const active = !!c.active;
-    const progress: number | undefined =
-      typeof c.mergeProgress === 'number' ? c.mergeProgress : undefined;
-    const p = progress != null ? Math.max(0, Math.min(1, progress)) : 0;
-    const showProgress = !active && progress != null; // show ring for any defined progress
-    const imageOpacity = computeOpacity(active, progress);
-    const grayscale = active ? 0 : progress == null || p <= 0 ? 1 : 1 - p; // reveal colors progressively
-    const blur = !active && progress == null ? 2 : 0; // blur only inactive coins without progress
+  const relayService = ContainerDI.get(RelayService);
 
-    const filterParts: string[] = [];
-    if (grayscale > 0) filterParts.push(`grayscale(${grayscale})`);
-    if (blur > 0) filterParts.push(`blur(${blur}px)`);
-    const filter = filterParts.length ? filterParts.join(' ') : 'none';
+  useEffect(() => {
+    if (nostrSettings && nostrSettings.length > 0) {
+      setShowConfig(true);
+    }
+  }, [nostrSettings]);
 
-    const size = 48;
-    const stroke = 4; // ring thickness
+  const handleManage = async () => {
+    if (!flcAddress || !validateAddress(flcAddress)) return;
 
-    return { active, p, showProgress, imageOpacity, grayscale, filter, size, stroke };
+    setLoading(true);
+    if (onPayoutsFetched) {
+      onPayoutsFetched(flcAddress, null);
+    }
+
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+
+    try {
+      await relayService.connectRelay(RELAY_URL);
+
+      relayService.subscribeSettings(flcAddress, {
+        onevent: (event) => {
+          if (event && event.tags) {
+            const payouts = event.tags
+              .filter((tag) => tag[0] !== 'a' && tag[0] !== 'd' && tag.length >= 3)
+              .map((tag) => ({ coin: tag[0].toUpperCase(), address: tag[1], signature: tag[2] }));
+
+            if (onPayoutsFetched) {
+              onPayoutsFetched(flcAddress, payouts.length > 0 ? payouts : null);
+            }
+
+            clearTimeout(timeoutId);
+            setLoading(false);
+          }
+        },
+        oneose: () => {
+          // handled by timeout or event
+        }
+      });
+    } catch (e) {
+      console.error(e);
+      // If error, let timeout handle or clear immediately?
+      // Safe to let timeout handle it to avoid flickering if retries happen internally (unlikely)
+      // or just to provide consistent UX failure state.
+    }
+
+    // waiting logic removed
   };
 
   return (
     <Container maxWidth="md" sx={{ py: 2 }}>
       <GlassCard>
         <Box sx={{ p: 3 }}>
-          <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
-            {t('home.merge.title')}
+          <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
+            {t('home.payouts.title')}
           </Typography>
+          <Typography sx={{ color: TEXT_SUBTLE, mb: 3 }}>{t('home.payouts.subtitle')}</Typography>
           <Box
             sx={{
               display: 'grid',
@@ -54,7 +121,11 @@ const MergeMining = () => {
               alignItems: 'center'
             }}>
             {MERGE_MINING_COINS.map((c: any) => {
-              const ui = prepareCoin(c);
+              const isSigned = nostrSettings?.some((s: any) => s.coin === c.code);
+
+              const coinData = isSigned ? { ...c, active: false, mergeProgress: 1 } : c;
+
+              const ui = prepareCoin(coinData);
               const coinNode = (
                 <Box sx={{ position: 'relative', width: ui.size, height: ui.size, mb: 1 }}>
                   <Box
@@ -80,9 +151,8 @@ const MergeMining = () => {
                         top: -5,
                         left: -5,
                         zIndex: 1,
-                        
+                        color: PRIMARY_BLUE
                       }}
-                      // @ts-ignore - MUI v7 track slot
                       enableTrackSlot
                     />
                   )}
@@ -109,8 +179,7 @@ const MergeMining = () => {
                           padding: '0 6px',
                           borderRadius: '12px'
                         }
-                      }}
-                    >
+                      }}>
                       {coinNode}
                     </Badge>
                   ) : (
@@ -121,6 +190,109 @@ const MergeMining = () => {
               );
             })}
           </Box>
+        </Box>
+
+        <Divider sx={{ borderColor: alpha(PRIMARY_WHITE, 0.1), my: 0 }} />
+        <Box sx={{ p: 3 }}>
+          <Box
+            sx={{
+              mb: 3,
+              maxWidth: 500,
+              mx: 'auto',
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: { xs: 2, sm: 1 },
+              alignItems: 'center'
+            }}>
+            <Box sx={{ flex: 1, width: '100%' }}>
+              <IconInput>
+                <IconWrapper>
+                  <img
+                    src="/img/flc.png"
+                    alt="FLC"
+                    width={24}
+                    height={24}
+                    style={{ borderRadius: '50%' }}
+                  />
+                </IconWrapper>
+                <StyledIconInputBase
+                  placeholder={t('home.minerSettings.flcAddressIndependentPlaceholder')}
+                  value={flcAddress}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    if (onAddressChange) onAddressChange(val);
+                  }}
+                />
+              </IconInput>
+              {flcAddress && flcAddress.length > 0 && !validateAddress(flcAddress) && (
+                <Typography variant="caption" color="error">
+                  {t('home.payouts.invalidAddress', { coin: 'FLC' })}
+                </Typography>
+              )}
+            </Box>
+            <Button
+              variant="contained"
+              onClick={handleManage}
+              disabled={loading || !flcAddress || !validateAddress(flcAddress)}
+              sx={{
+                bgcolor: PRIMARY_BLUE,
+                fontWeight: 700,
+                borderRadius: 1,
+                textTransform: 'uppercase',
+                px: { xs: 6, sm: 3 },
+                '&:hover': { bgcolor: alpha(PRIMARY_BLUE, 0.8) }
+              }}>
+              {t('home.payouts.manage')}
+            </Button>
+          </Box>
+
+          {flcAddress && validateAddress(flcAddress) && (
+            <>
+              {loading ? (
+                <Box sx={{ display: 'flex', justifyContent: 'center', p: 4 }}>
+                  <CircularProgress sx={{ color: PRIMARY_BLUE }} />
+                </Box>
+              ) : (
+                <>
+                  {generated && !nostrSettings && !showConfig && (
+                    <Box
+                      sx={{
+                        p: 2,
+                        bgcolor: SURFACE_MUTED,
+                        borderRadius: 2,
+                        textAlign: 'center',
+                        mb: 2
+                      }}>
+                      <Typography sx={{ mb: 1.5, color: 'text.secondary' }}>
+                        {t('home.payouts.infoBanner')}
+                      </Typography>
+                      <Button
+                        variant="contained"
+                        sx={{
+                          bgcolor: SURFACE_MUTED,
+                          color: PRIMARY_WHITE,
+                          border: `1px solid ${BORDER_SUBTLE}`
+                        }}
+                        onClick={() => setShowConfig(true)}>
+                        {t('home.payouts.addNow')}
+                      </Button>
+                    </Box>
+                  )}
+
+                  <Collapse in={showConfig}>
+                    <MergeMiningConfigurator
+                      flcAddress={flcAddress || ''}
+                      onFlcAddressChange={(addr) => {
+                        if (onAddressChange) onAddressChange(addr);
+                      }}
+                      initialPayouts={nostrSettings || undefined}
+                      onCancel={() => setShowConfig(false)}
+                    />
+                  </Collapse>
+                </>
+              )}
+            </>
+          )}
         </Box>
       </GlassCard>
     </Container>

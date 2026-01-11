@@ -1,7 +1,7 @@
-import { Box, Container, Divider, Link, Stack, Typography } from '@mui/material';
-import GlassCard from '@components/styled/GlassCard';
 import { useTranslation } from 'react-i18next';
 import { FAQ_LINKS } from '@constants/config';
+import { Box, Container, Divider, Link, Stack, Typography } from '@mui/material';
+import GlassCard from '@components/styled/GlassCard';
 
 const renderWithLinks = (text: string) => {
   const parts: (string | JSX.Element)[] = [];
@@ -40,7 +40,7 @@ const Faq = () => {
     <Container maxWidth="md" sx={{ py: 2 }}>
       <GlassCard>
         <Box sx={{ p: 3 }}>
-          <Typography variant="h6" sx={{ fontWeight: 600, mb: 2 }}>
+          <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
             {t('faq.title')}
           </Typography>
           <Stack spacing={2}>

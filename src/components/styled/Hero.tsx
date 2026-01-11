@@ -14,7 +14,7 @@ export const HeroTitle = styled(Typography)(({ theme }) => ({
   color: theme.palette.common.white
 }));
 
-export const HeroSubtitle = styled(Typography)(({ theme }) => ({
+export const HeroSubtitle = styled(Typography)(() => ({
   textAlign: 'center',
   color: 'rgba(255,255,255,0.7)'
 }));

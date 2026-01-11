@@ -1,19 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Box, Container, Grid, Link as MLink, Typography } from '@mui/material';
-import Link from 'next/link';
-import LanguageSwitcher from '@components/common/LanguageSwitcher';
-import { TEXT_SUBTLE, TEXT_WEAK } from '@styles/colors';
-import { justifyContent } from '@mui/system';
-
-type FooterLink = { label: string; link: string };
-type FooterColumn = { title: string; links: FooterLink[] };
+import { Box, Container, Typography } from '@mui/material';
+import { TEXT_WEAK } from '@styles/colors';
 
 const Footer = () => {
   const { t } = useTranslation();
-  const columns = t('footer.columns', { returnObjects: true }) as unknown as FooterColumn[];
-
-  const isInternal = (href: string) => href.startsWith('/');
 
   return (
     <Box

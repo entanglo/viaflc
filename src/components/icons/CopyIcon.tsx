@@ -7,4 +7,3 @@ const CopyIcon = (props: SvgIconProps) => (
 );
 
 export default CopyIcon;
-

@@ -1,9 +1,9 @@
-import LanguageSwitcher from '@components/common/LanguageSwitcher';
-import SocialLinks from '@components/common/SocialLinks';
-import { Container } from '@mui/material';
-import styles from '@styles/scss/Header.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Container } from '@mui/material';
+import LanguageSwitcher from '@components/common/LanguageSwitcher';
+import SocialLinks from '@components/common/SocialLinks';
+import styles from '@styles/scss/Header.module.scss';
 
 const Header = () => {
   return (

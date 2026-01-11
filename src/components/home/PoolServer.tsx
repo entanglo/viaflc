@@ -1,8 +1,8 @@
-import { Box, Container, IconButton, Tooltip, Typography } from '@mui/material';
-import GlassCard from '@components/styled/GlassCard';
 import { useTranslation } from 'react-i18next';
 import { POOL_URL } from '@constants/config';
+import { Box, Container, IconButton, Tooltip, Typography } from '@mui/material';
 import CopyIcon from '@components/icons/CopyIcon';
+import GlassCard from '@components/styled/GlassCard';
 import { BORDER_SUBTLE, SURFACE_MUTED } from '@styles/colors';
 
 const PoolServer = () => {
@@ -14,7 +14,9 @@ const PoolServer = () => {
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(poolUrl);
-    } catch {}
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (

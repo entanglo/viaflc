@@ -9,7 +9,7 @@ export const StatBox = styled(Box)(({ theme }) => ({
   textAlign: 'center'
 }));
 
-export const StatLabel = styled(Typography)(({ theme }) => ({
+export const StatLabel = styled(Typography)(() => ({
   fontSize: 12,
   letterSpacing: 1,
   color: 'rgba(255,255,255,0.55)'

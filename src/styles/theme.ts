@@ -1,4 +1,4 @@
-import { createTheme, Theme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { PRIMARY_BLACK, PRIMARY_WHITE } from '@styles/colors';
 
 const customTheme = (_: any) =>

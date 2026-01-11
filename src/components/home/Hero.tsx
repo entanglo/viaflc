@@ -1,6 +1,6 @@
+import { useTranslation } from 'react-i18next';
 import { Container } from '@mui/material';
 import { HeroSection, HeroSubtitle, HeroTitle } from '@components/styled/Hero';
-import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
   const { t } = useTranslation();

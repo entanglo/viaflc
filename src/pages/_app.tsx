@@ -1,15 +1,16 @@
-import { Container } from '@mui/material';
-import { ThemeProvider, useTheme } from '@mui/material/styles';
+import 'reflect-metadata';
 import type { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Script from 'next/script';
+import { Container } from '@mui/material';
+import { ThemeProvider, useTheme } from '@mui/material/styles';
 import '@styles/scss/globals.scss';
 import customTheme from '@styles/theme';
 import { throwErrorIfEnvVarsNotFound } from '@utils/ConfigUtils';
 import '@utils/i18n';
 
-export interface MyAppProps extends AppProps {}
+export type MyAppProps = AppProps;
 
 const App = (props: AppProps) => {
   throwErrorIfEnvVarsNotFound();
@@ -35,10 +36,7 @@ const App = (props: AppProps) => {
       </Script>
       <Head>
         <title>ViaFLC</title>
-        <meta
-          name="description"
-          content="ViaFLC - More Coins Same Power"
-        />
+        <meta name="description" content="ViaFLC - More Coins Same Power" />
         <meta property="og:image" content="/assets/og.png" />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:alt" content="ViaFLC" />
