@@ -14,7 +14,11 @@ export const TEXT_WEAK = 'rgba(255,255,255,0.6)';
 
 // Surfaces & Borders
 export const SURFACE_MODAL = '#3d3d3d';
+export const SURFACE_MUTED = 'rgba(255,255,255,0.06)';
+export const SURFACE_TRANSPARENT_05 = 'rgba(255,255,255,0.05)';
 export const BORDER_SUBTLE = 'rgba(255,255,255,0.08)';
+export const BORDER_TRANSPARENT_10 = 'rgba(255,255,255,0.1)';
+export const BORDER_TRANSPARENT_20 = 'rgba(255,255,255,0.2)';
 export const BORDER_STRONG = '#232323';
 
 // Legacy still used in backup page
