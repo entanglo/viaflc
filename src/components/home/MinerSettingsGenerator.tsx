@@ -17,6 +17,7 @@ import {
   Typography
 } from '@mui/material';
 import {
+  parseNoteLabel,
   planSharenoteFromHashrate,
   ReliabilityId,
   withPlanReliability
@@ -112,11 +113,11 @@ const MinerSettingsGenerator = ({ flcAddress, onAddressChange, onSettingsGenerat
   useEffect(() => {
     const v = targetSharenote.trim();
     if (v.length > 0 && inputMode === 'sharenote') {
-      // 2 digits, z, 2 digits. (Case insensitive)
-      if (!/^\d{2}z\d{2}$/i.test(v)) {
-        setSharenoteError(t('home.minerSettings.sharenoteError'));
-      } else {
+      try {
+        parseNoteLabel(v);
         setSharenoteError(null);
+      } catch {
+        setSharenoteError(t('home.minerSettings.sharenoteError'));
       }
     } else {
       setSharenoteError(null);
