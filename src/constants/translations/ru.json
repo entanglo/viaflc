@@ -33,7 +33,7 @@
       "flcAddressLabel": "Ваш FLC-адрес",
       "flcAddressPlaceholder": "fc1...",
       "flcAddressIndependentPlaceholder": "FLC адрес (напр. fc1...)",
-      "flcAddressHelp": "Нужен адрес? Используйте [[link:tWallet]]",
+      "flcAddressHelp": "Нужен адрес? [[link:tWallet]]",
       "workerNameLabel": "Имя воркера",
       "workerNamePlaceholder": "воркер",
       "workerNameTooltip": "идентификатор отслеживания воркера (например, worker 1)",
@@ -49,7 +49,7 @@
       "getSettings": "Получить настройки",
       "generating": "Генерация...",
       "sharenotePrintPlanner": "Sharenote Print Planner",
-      "tWallet": "tWallet",
+      "tWallet": "Выберите кошелек.",
       "stratumUrlLabel": "STRATUM URL",
       "usernameLabel": "ИМЯ ПОЛЬЗОВАТЕЛЯ",
       "passwordLabel": "ПАРОЛЬ"

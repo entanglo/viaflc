@@ -37,7 +37,7 @@ export const FAQ_LINKS: Record<string, { label: string; link: string }> = {
   twalletGuide: { label: 'tWallet guide', link: 'https://docs.flokicoin.org/wallets/twallet/v1' },
   sharenotePrintPlanner: {
     label: 'Sharenote Print Planner',
-    link: 'https://sharenote.streamlit.app/Planner'
+    link: 'https://sharenote.xyz/planner'
   },
   tWallet: { label: 'tWallet', link: 'https://docs.flokicoin.org/wallets' }
 };

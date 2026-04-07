@@ -33,7 +33,7 @@
       "flcAddressLabel": "Your FLC Address",
       "flcAddressPlaceholder": "fc1...",
       "flcAddressIndependentPlaceholder": "FLC address (e.g fc1...)",
-      "flcAddressHelp": "Need an address? Use [[link:tWallet]]",
+      "flcAddressHelp": "Need an address? [[link:tWallet]]",
       "workerNameLabel": "Worker Name",
       "workerNamePlaceholder": "worker",
       "workerNameTooltip": "worker tracking identifier (e.g worker 1)",
@@ -49,7 +49,7 @@
       "getSettings": "Get Settings",
       "generating": "Generating...",
       "sharenotePrintPlanner": "Sharenote Print Planner",
-      "tWallet": "tWallet",
+      "tWallet": "Choose a wallet.",
       "stratumUrlLabel": "STRATUM URL",
       "usernameLabel": "USERNAME",
       "passwordLabel": "PASSWORD"

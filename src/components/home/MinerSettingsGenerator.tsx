@@ -266,7 +266,9 @@ const MinerSettingsGenerator = ({ flcAddress, onAddressChange, onSettingsGenerat
                   __html: t('home.minerSettings.flcAddressHelp')
                     .replace(
                       '[[link:tWallet]]',
-                      `<a href="${FAQ_LINKS.tWallet.link}" target="_blank" rel="noopener noreferrer" style="color:${LINK_COLOR}">${FAQ_LINKS.tWallet.label}</a>`
+                      `<a href="${FAQ_LINKS.tWallet.link}" target="_blank" rel="noopener noreferrer" style="color:${LINK_COLOR}">${t(
+                        'home.minerSettings.tWallet'
+                      )}</a>`
                     )
                     .replace(/\[\[bold:(.*?)\]\]/g, '<b>$1</b>')
                 }}
@@ -421,7 +423,9 @@ const MinerSettingsGenerator = ({ flcAddress, onAddressChange, onSettingsGenerat
                 __html: t('home.minerSettings.sharenoteHelp')
                   .replace(
                     '[[link:sharenotePrintPlanner]]',
-                    `<a href="${FAQ_LINKS.sharenotePrintPlanner.link}" target="_blank" rel="noopener noreferrer" style="color:#57bcee">${FAQ_LINKS.sharenotePrintPlanner.label}</a>`
+                    `<a href="${FAQ_LINKS.sharenotePrintPlanner.link}" target="_blank" rel="noopener noreferrer" style="color:#57bcee">${t(
+                      'home.minerSettings.sharenotePrintPlanner'
+                    )}</a>`
                   )
                   .replace(/\[\[bold:(.*?)\]\]/g, '<b>$1</b>')
               }}

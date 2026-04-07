@@ -33,7 +33,7 @@
       "flcAddressLabel": "您的 FLC 地址",
       "flcAddressPlaceholder": "fc1...",
       "flcAddressIndependentPlaceholder": "FLC 地址 (例如 fc1...)",
-      "flcAddressHelp": "需要地址？使用 [[link:tWallet]]",
+      "flcAddressHelp": "需要地址？ [[link:tWallet]]",
       "workerNameLabel": "工人名称",
       "workerNamePlaceholder": "工人",
       "workerNameTooltip": "工人追踪标识符（例如 worker 1）",
@@ -49,7 +49,7 @@
       "getSettings": "获取设置",
       "generating": "正在生成...",
       "sharenotePrintPlanner": "Sharenote Print Planner",
-      "tWallet": "tWallet",
+      "tWallet": "选择钱包。",
       "stratumUrlLabel": "STRATUM URL",
       "usernameLabel": "用户名",
       "passwordLabel": "密码"
