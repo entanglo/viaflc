@@ -39,5 +39,5 @@ export const FAQ_LINKS: Record<string, { label: string; link: string }> = {
     label: 'Sharenote Print Planner',
     link: 'https://sharenote.streamlit.app/Planner'
   },
-  tWallet: { label: 'tWallet', link: 'https://docs.flokicoin.org/wallets/twallet/v1/' }
+  tWallet: { label: 'tWallet', link: 'https://docs.flokicoin.org/wallets' }
 };

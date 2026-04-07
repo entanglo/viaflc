@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import ContainerDI from 'typedi';
-import { POOL_URL, RELAY_URL } from '@constants/config';
+import { FAQ_LINKS, POOL_URL, RELAY_URL } from '@constants/config';
 import {
   alpha,
   Box,
@@ -266,7 +266,7 @@ const MinerSettingsGenerator = ({ flcAddress, onAddressChange, onSettingsGenerat
                   __html: t('home.minerSettings.flcAddressHelp')
                     .replace(
                       '[[link:tWallet]]',
-                      `<a href="#" style="color:${LINK_COLOR}">tWallet</a>`
+                      `<a href="${FAQ_LINKS.tWallet.link}" target="_blank" rel="noopener noreferrer" style="color:${LINK_COLOR}">${FAQ_LINKS.tWallet.label}</a>`
                     )
                     .replace(/\[\[bold:(.*?)\]\]/g, '<b>$1</b>')
                 }}
@@ -421,9 +421,7 @@ const MinerSettingsGenerator = ({ flcAddress, onAddressChange, onSettingsGenerat
                 __html: t('home.minerSettings.sharenoteHelp')
                   .replace(
                     '[[link:sharenotePrintPlanner]]',
-                    `<a href="#" style="color:#57bcee">${t(
-                      'home.minerSettings.sharenotePrintPlanner'
-                    )}</a>`
+                    `<a href="${FAQ_LINKS.sharenotePrintPlanner.link}" target="_blank" rel="noopener noreferrer" style="color:#57bcee">${FAQ_LINKS.sharenotePrintPlanner.label}</a>`
                   )
                   .replace(/\[\[bold:(.*?)\]\]/g, '<b>$1</b>')
               }}
